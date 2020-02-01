@@ -11,14 +11,11 @@ const TodoForm = ({dispatch}) => {
     }
 
     const addTodo = e=> {
-        const newTodoItem = {
-            item: newTodo,
-            completed:false,
-            id: Date.now(),
-        }
+
+        
+        console.log("addtodo", newTodo)
+        dispatch({type: "ADD_TODO",payload: newTodo})
         setNewTodo("")
-        console.log("addtodo",newTodoItem)
-        dispatch({type: "ADD_TODO",payload: newTodoItem})
     }
 
     const clearCompleted = e => {

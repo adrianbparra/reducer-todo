@@ -15,7 +15,11 @@ export const todoListReducer = (state, action) => {
         case "ADD_TODO":
             return[
                 ...state,
-                action.payload
+                {
+                    item: action.payload,
+                    completed:false,
+                    id: Date.now(),
+                }
                     
             ]
 
