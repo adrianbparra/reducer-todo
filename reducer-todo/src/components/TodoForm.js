@@ -21,6 +21,12 @@ const TodoForm = ({dispatch}) => {
         dispatch({type: "ADD_TODO",payload: newTodoItem})
     }
 
+    const clearCompleted = e => {
+
+        console.log("clear completed")
+        dispatch({type: "CLEAR_COMPLETED"})
+    }
+
     return (
         <div className="form">
             <input
@@ -31,6 +37,7 @@ const TodoForm = ({dispatch}) => {
                 onChange={handleChanges}
             />
             <button onClick={addTodo}>Add Todo</button>
+            <button onClick={clearCompleted}> Clear Completed </button>
             
         </div>
 

@@ -9,13 +9,29 @@ export const initialState = [
 
 export const todoListReducer = (state, action) => {
 
-    switch( action.type){
+    const {type} =  action;
+
+    switch(type){
         case "ADD_TODO":
             return[
                 ...state,
                 action.payload
                     
             ]
+
+        case "COMPLETED":
+            return state.map(item => {
+                
+                return item.id === action.payload.id ?
+                {...item , completed : !item.completed}
+                : item
+                
+            })
+
+        case "CLEAR_COMPLETED" :
+            return state.filter(item => {
+                return item.completed !== true
+            })
         default :
             return state;
     }

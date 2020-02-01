@@ -1,15 +1,27 @@
 import React from "react";
 
 
-const TodoItem= ({listItem}) => {
+const TodoItem= ({listItem, dispatch}) => {
 
 
     const {item, completed, id} = listItem;
 
+    const setCompleted = e => {
+
+        dispatch( {type: "COMPLETED",  payload: listItem})
+    }
+
     return (
-        <p className={`item ${completed}`}>
-            {item}
-        </p>
+        <div>
+            <input
+            type="checkbox" 
+            checked={completed}
+            onChange={setCompleted}
+            />
+            <span className={`item ${completed}`}>
+                {item}
+            </span>
+        </div>
     )
 
 };

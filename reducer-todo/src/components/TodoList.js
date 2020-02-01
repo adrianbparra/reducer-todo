@@ -2,7 +2,7 @@ import React from "react"
 import TodoItem from "./TodoItem";
 // import {initialState, todoListReducer} from "../reducers"
 
-const TodoList = ({state}) => {
+const TodoList = ({state,dispatch}) => {
 
 
     // const [state, dispatch] = useReducer(todoListReducer, initialState);
@@ -10,7 +10,7 @@ const TodoList = ({state}) => {
     return (
         <div>
             {state.map((item) => {
-                return <TodoItem key={item.id} listItem = {item}/>
+                return <TodoItem key={item.id} listItem = {item} dispatch={dispatch}/>
             })}
             
         </div>
