@@ -1,5 +1,6 @@
 import React,{useReducer} from 'react';
-import './App.css';
+import "./App.css";
+import { Container, Header, Segment, Divider, } from 'semantic-ui-react'
 //components
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
@@ -16,11 +17,16 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h1>Reducer Todo List</h1>
+    <Container className="App">
+      <Header size="huge">Todo List</Header>
       <TodoForm dispatch={dispatch} />
-      <TodoList state={state} dispatch={dispatch} />
-    </div>
+      <Divider/>
+      <Segment >
+        <TodoList state={state} dispatch={dispatch} />
+      </Segment>
+        
+      
+    </Container>
   );
 }
 

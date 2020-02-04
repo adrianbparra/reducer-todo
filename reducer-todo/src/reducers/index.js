@@ -2,7 +2,9 @@ export const initialState = [
     {
     item: "Learn about reducers",
     completed: false,
-    id: Date.now()
+    id: Date.now(),
+    completeBy: "date",
+    date: "02-23-1993",
     },
     
 ]
@@ -16,9 +18,10 @@ export const todoListReducer = (state, action) => {
             return[
                 ...state,
                 {
-                    item: action.payload,
+                    item: action.payload.newTodo,
                     completed:false,
                     id: Date.now(),
+                    date: action.payload.date,
                 }
                     
             ]

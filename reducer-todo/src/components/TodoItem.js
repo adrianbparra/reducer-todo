@@ -1,27 +1,34 @@
 import React from "react";
-
+import { Checkbox, Segment, Item } from 'semantic-ui-react'
+import Moment from "react-moment";
 
 const TodoItem= ({listItem, dispatch}) => {
 
 
-    const {item, completed, id} = listItem;
+    const {item, completed,date} = listItem;
 
     const setCompleted = e => {
+
+        e.stopPropagation()
 
         dispatch( {type: "COMPLETED",  payload: listItem})
     }
 
     return (
-        <div>
-            <input
+        <Segment className="item" onClick={setCompleted}>
+            <Checkbox
             type="checkbox" 
             checked={completed}
-            onChange={setCompleted}
+            // onChange={setCompleted}
+            readOnly
+            label={item}
             />
-            <span className={`item ${completed}`}>
-                {item}
-            </span>
-        </div>
+            <Item.Meta>
+                Due date: {date}
+            </Item.Meta>
+            <Moment fromNow>{date}</Moment>
+            
+        </Segment>
     )
 
 };
