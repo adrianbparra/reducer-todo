@@ -1,6 +1,7 @@
 import React from "react";
-import { Checkbox, Segment, Item } from 'semantic-ui-react'
+import { Checkbox, Segment, Item,Card } from 'semantic-ui-react'
 import Moment from "react-moment";
+
 
 const TodoItem= ({listItem, dispatch}) => {
 
@@ -14,21 +15,33 @@ const TodoItem= ({listItem, dispatch}) => {
         dispatch( {type: "COMPLETED",  payload: listItem})
     }
 
+    console.log()
+
     return (
-        <Segment className="item" onClick={setCompleted}>
-            <Checkbox
-            type="checkbox" 
-            checked={completed}
-            // onChange={setCompleted}
-            readOnly
-            label={item}
-            />
-            <Item.Meta>
-                Due date: {date}
-            </Item.Meta>
-            <Moment fromNow>{date}</Moment>
-            
-        </Segment>
+        <Card fluid onClick={setCompleted}>
+            <Card.Content>
+            <Card.Header>
+                <Checkbox 
+                
+                type="checkbox" 
+                checked={completed}
+                // onChange={setCompleted}
+                readOnly
+                label={item}
+                />
+            </Card.Header>
+            {
+                date && <>
+                <Card.Meta style={{color:"black"}}  >
+                    Due: {date}
+                    
+                </Card.Meta>
+                <Moment fromNow>{date}</Moment>
+                </>
+            }
+            {/* <span>Due: <Moment style={{color:"red"}}  fromNow>{date}</Moment></span> */}
+            </Card.Content>
+        </Card>
     )
 
 };

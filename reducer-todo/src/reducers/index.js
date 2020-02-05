@@ -3,8 +3,7 @@ export const initialState = [
     item: "Learn about reducers",
     completed: false,
     id: Date.now(),
-    completeBy: "date",
-    date: "02-23-1993",
+    date: "02/23/1993",
     },
     
 ]

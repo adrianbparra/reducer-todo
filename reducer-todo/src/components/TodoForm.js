@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Button, Icon, Grid, Form, TextArea, Label} from "semantic-ui-react";
 import { DateInput } from 'semantic-ui-calendar-react';
-import moment from "moment"
+
 
 
 
@@ -63,7 +63,7 @@ const TodoForm = ({dispatch}) => {
                         placeholder="Due Date"
                         value={date}
                         onChange={handleDateChange}
-                        dateFormat="MM-DD-YYYY"
+                        dateFormat="MM/DD/YYYY"
                     />
                 </Grid.Row>
                 {/* <Divider horizontal/> */}
